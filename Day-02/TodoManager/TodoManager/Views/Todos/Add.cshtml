@@ -1,0 +1,22 @@
+﻿@model TodoManager.Models.Todo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+    </head>
+    <body>
+        @using(Html.BeginForm()){
+        <div>
+            @Html.TextBoxFor(m => m.Name)
+            <input type="submit" value="Save"/>
+        </div>
+
+        }
+    </body>
+</html>

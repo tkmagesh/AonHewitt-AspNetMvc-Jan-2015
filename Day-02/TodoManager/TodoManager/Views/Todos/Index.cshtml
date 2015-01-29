@@ -1,0 +1,24 @@
+﻿@model System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.Guid,TodoManager.Models.Todo>>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Todos</title>
+    </head>
+    <body>
+        <h1>Todo List</h1>
+        <ol>
+            @foreach (var kvp in Model)
+            {
+                <li>@kvp.Value.Name</li>
+            }
+            
+        </ol>
+        @Html.ActionLink("Add New", "Add")
+    </body>
+</html>
