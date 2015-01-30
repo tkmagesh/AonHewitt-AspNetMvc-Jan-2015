@@ -1,4 +1,4 @@
-﻿@model TodoManager.Models.Todo
+﻿@model TodoManager.ViewModels.NewTodo
 
 @{
     Layout = null;
@@ -11,12 +11,14 @@
         <title>title</title>
     </head>
     <body>
-        @using(Html.BeginForm()){
-        <div>
-            @Html.TextBoxFor(m => m.Name)
+        @using (Html.BeginForm())
+        {
+            <div>
+                Name :
+                @Html.TextBoxFor(m => m.Name)
+                <span>@Html.ValidationMessageFor(m => m.Name)</span>
+            </div>
             <input type="submit" value="Save"/>
-        </div>
-
         }
     </body>
 </html>

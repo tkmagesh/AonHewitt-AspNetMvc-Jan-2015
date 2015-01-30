@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TodoManager.Models;
 using TodoManager.Services;
+using TodoManager.ViewModels;
 
 namespace TodoManager.Controllers
 {
@@ -32,14 +33,35 @@ namespace TodoManager.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View("Add", new Todo(){Name = "Default todo"});
+            var defaultCategoryId = 2;
+            return View("Add", new NewTodo
+            {
+                Categories = new CategoryService().GetAll().Select(c => new SelectListItem()
+                {
+                   Text = c.Name,
+                   Value = c.Id.ToString(),
+                   Selected = c.Id == defaultCategoryId
+
+                }),
+                Name = "Default todo",
+                CategoryId = defaultCategoryId
+            });
         }
 
         [HttpPost]
-        public ActionResult Add(Todo todo)
+        public ActionResult Add(NewTodo todo)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return View(todo);
+            }
             _todoService.Add(todo.Name);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ViewCategory(Category category)
+        {
+            return null;
         }
 
     }
