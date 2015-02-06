@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Manager</title>
+</head>
+<body>
+	<h1>Task Manager</h1>
+	<hr>
+	<form action="/tasks/add" method="post">
+		<label for="">Task :</label>
+		<input type="text" name="taskName" id="txtTask">
+		<input type="submit" value="Add Task" id="btnAdd">
+		<ol>
+			<ul>
+			<% for(var i=0; i<tasks.length; i++) {%>
+			   <li><%= tasks[i] %></li>
+			<% } %>
+			</ul>
+		</ol>
+	</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Salary Calculator</title>
+	<style>
+	label{
+		display : block;
+	}
+	#divResult{
+		color: red;
+		font-size: 28pt;
+		font-weight: bold;
+	}
+	</style>
+
+	
+	
+	
+	<script src="require.js" data-main="main.js"></script>
+
+	<script type="text/template" id="calculatorTemplate">
+		<div id="calculator1">
+		<div><label for="">Basic :</label>
+		<input type="text" name="" id="txtBasic" value="{{basic}}"></div>
+		<div><label for="">HRA :</label>
+		<input type="text" name="" id="txtHra" value="{{hra}}"></div>
+		<div><label for="">DA :</label>
+		<input type="text" name="" id="txtDa" value="{{da}}"></div>
+		<div>
+			<label for="">Tax :</label>
+			<input type="range" name="" id="rangeTax" min="0" max="30" value="{{tax}}">
+			<span id="spanTax">{{tax}}%</span>
+		</div>
+		<div><input type="button" value="Calculate" id="btnCalculate"></div>
+		<div>
+			<div id="divResult">{{salary}}</div>
+		</div>	
+	</div>
+	
+	</script>
+</head>
+<body>
+	<h1>Salary Calculator</h1>
+	<hr>
+	
+	
+</body>
+</html>
